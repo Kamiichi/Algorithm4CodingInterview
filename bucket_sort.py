@@ -14,14 +14,14 @@ def insertion_sort(numbers: List[int]) -> List[int]:
     return numbers
 
 def bucket_sort(numbers: List[int]) -> List[int]:
-    max_num = max(nunmbers)
+    max_num = max(numbers)
     len_numbers = len(numbers)
     size = max_num // len_numbers
 
     buckets = [[] for _ in range(size)]
     for num in numbers:
         i = num // size
-        if i != size:
+        if i < size:
             buckets[i].append(num)
         else:
             buckets[size-1].append(num)
@@ -33,7 +33,7 @@ def bucket_sort(numbers: List[int]) -> List[int]:
     for i in range(size):
         result += buckets[i]
 
-    return numbers
+    return result
 
 if __name__ == '__main__':
     import random
